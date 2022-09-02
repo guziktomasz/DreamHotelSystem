@@ -36,8 +36,8 @@ public class RoomsServiceImpl implements RoomsService {
     }
 
     @Override
-    public Optional<Room> getRoom(int id) {
-        return repository.findById(id);
+    public Optional<Room> getRoom(int roomNumber) {
+        return repository.findAllByRoomNumber(roomNumber);
     }
 
 //    @Override

@@ -12,7 +12,7 @@ public interface RoomsService {
 
     Collection<Room> getAllRooms();
 
-    Optional<Room> getRoom(int id);
+    Optional<Room> getRoom(int roomNumber);
 
 //    Collection<Room> filterRooms(int numberOfPeople);
 
