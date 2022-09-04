@@ -1,5 +1,6 @@
 package pl.sda.dreamhotelsystem.dto.users;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class UserHotelDto {
@@ -10,11 +11,11 @@ public class UserHotelDto {
 
     private final String telephone;
 
-    private final String dateOfBirth;
+    private final LocalDate dateOfBirth;
 
     private final String access;
 
-    public UserHotelDto(String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotelDto(String name, String surname, String telephone, LocalDate dateOfBirth, String access) {
         this.name = name;
         this.surname = surname;
         this.telephone = telephone;
@@ -35,7 +36,7 @@ public class UserHotelDto {
         return telephone;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 

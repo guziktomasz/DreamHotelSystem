@@ -53,7 +53,7 @@ public class UsersController {
         return new ResponseEntity<>(updatedUser.get(), HttpStatus.OK);
     }
     //Delete
-    @DeleteMapping(path = "/id")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<UserHotel> deletedUser(@PathVariable int id){
         Optional<UserHotel> deletedUser = usersService.deleteUser(id);
         if(deletedUser.isEmpty()){

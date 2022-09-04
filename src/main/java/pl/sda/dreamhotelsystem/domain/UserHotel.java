@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -21,14 +22,14 @@ public class UserHotel {
 
     private String telephone;
 
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
 
     private String access;
 
     public UserHotel() {
     }
 
-    public UserHotel(int id, String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotel(int id, String name, String surname, String telephone, LocalDate dateOfBirth, String access) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -37,7 +38,7 @@ public class UserHotel {
         this.access = access;
     }
 
-    public UserHotel(String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotel(String name, String surname, String telephone, LocalDate dateOfBirth, String access) {
         this.name = name;
         this.surname = surname;
         this.telephone = telephone;
@@ -61,7 +62,7 @@ public class UserHotel {
         return telephone;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
