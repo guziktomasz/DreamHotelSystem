@@ -2,7 +2,7 @@ package pl.sda.dreamhotelsystem.dto.users;
 
 import java.util.Objects;
 
-public class UserDto {
+public class UserHotelDto {
 
     private final String name;
 
@@ -14,7 +14,7 @@ public class UserDto {
 
     private final String access;
 
-    public UserDto(String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotelDto(String name, String surname, String telephone, String dateOfBirth, String access) {
         this.name = name;
         this.surname = surname;
         this.telephone = telephone;
@@ -57,8 +57,8 @@ public class UserDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserDto)) return false;
-        UserDto userDto = (UserDto) o;
+        if (!(o instanceof UserHotelDto)) return false;
+        UserHotelDto userDto = (UserHotelDto) o;
         return Objects.equals(getName(), userDto.getName()) && Objects.equals(getSurname(), userDto.getSurname()) && Objects.equals(getTelephone(), userDto.getTelephone()) && Objects.equals(getDateOfBirth(), userDto.getDateOfBirth()) && Objects.equals(getAccess(), userDto.getAccess());
     }
 

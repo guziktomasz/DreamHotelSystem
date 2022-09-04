@@ -1,20 +1,20 @@
 package pl.sda.dreamhotelsystem.service.users;
 
-import pl.sda.dreamhotelsystem.domain.User;
-import pl.sda.dreamhotelsystem.dto.users.UserDto;
+import pl.sda.dreamhotelsystem.domain.UserHotel;
+import pl.sda.dreamhotelsystem.dto.users.UserHotelDto;
 
 import java.util.Collection;
 import java.util.Optional;
 
 public interface UsersService {
 
-    User createUser(UserDto userDto);
+    UserHotel createUser(UserHotelDto userDto);
 
-    Collection<User> getAllUsers();
+    Collection<UserHotel> getAllUsers();
 
-    Optional<User> getUser(int id);
+    Optional<UserHotel> getUser(int id);
 
-    Optional<User> updateUser(UserDto userDto, int id);
+    Optional<UserHotel> updateUser(UserHotelDto userDto, int id);
 
-    Optional<User> deleteUser(int id);
+    Optional<UserHotel> deleteUser(int id);
 }

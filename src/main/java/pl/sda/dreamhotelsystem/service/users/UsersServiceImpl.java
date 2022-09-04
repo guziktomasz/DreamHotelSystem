@@ -1,8 +1,8 @@
 package pl.sda.dreamhotelsystem.service.users;
 
 import org.springframework.stereotype.Service;
-import pl.sda.dreamhotelsystem.domain.User;
-import pl.sda.dreamhotelsystem.dto.users.UserDto;
+import pl.sda.dreamhotelsystem.domain.UserHotel;
+import pl.sda.dreamhotelsystem.dto.users.UserHotelDto;
 import pl.sda.dreamhotelsystem.repository.users.UsersRepository;
 
 import java.util.Collection;
@@ -19,8 +19,8 @@ public class UsersServiceImpl implements UsersService{
 
 
     @Override
-    public User createUser(UserDto userDto) {
-        User createdUser = new User(userDto.getName(),
+    public UserHotel createUser(UserHotelDto userDto) {
+        UserHotel createdUser = new UserHotel(userDto.getName(),
                                     userDto.getSurname(),
                                     userDto.getTelephone(),
                                     userDto.getDateOfBirth(),
@@ -30,23 +30,23 @@ public class UsersServiceImpl implements UsersService{
     }
 
     @Override
-    public Collection<User> getAllUsers() {
+    public Collection<UserHotel> getAllUsers() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<User> getUser(int id) {
+    public Optional<UserHotel> getUser(int id) {
         return repository.findById(id);
     }
 
     @Override
-    public Optional<User> updateUser(UserDto updatedUserDto, int id) {
-        Optional<User> userToUpdate = repository.findById(id);
+    public Optional<UserHotel> updateUser(UserHotelDto updatedUserDto, int id) {
+        Optional<UserHotel> userToUpdate = repository.findById(id);
         if (userToUpdate.isEmpty()) {
             return userToUpdate;
         }
-        User foundRoom = userToUpdate.get();
-        User updatedUser = new User(foundRoom.getId(),
+        UserHotel foundRoom = userToUpdate.get();
+        UserHotel updatedUser = new UserHotel(foundRoom.getId(),
                                     updatedUserDto.getName(),
                                     updatedUserDto.getSurname(),
                                     updatedUserDto.getTelephone(),
@@ -57,12 +57,12 @@ public class UsersServiceImpl implements UsersService{
     }
 
     @Override
-    public Optional<User> deleteUser(int id) {
-        Optional<User> userToDelete = repository.findById(id);
+    public Optional<UserHotel> deleteUser(int id) {
+        Optional<UserHotel> userToDelete = repository.findById(id);
         if (userToDelete.isEmpty()){
             return userToDelete;
         }
-        User deletedUser = userToDelete.get();
+        UserHotel deletedUser = userToDelete.get();
         repository.delete(deletedUser);
         return Optional.of(deletedUser);
     }

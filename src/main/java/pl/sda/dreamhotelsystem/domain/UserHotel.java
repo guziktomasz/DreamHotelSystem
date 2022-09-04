@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class User {
+public class UserHotel {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +25,10 @@ public class User {
 
     private String access;
 
-    public User() {
+    public UserHotel() {
     }
 
-    public User(int id, String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotel(int id, String name, String surname, String telephone, String dateOfBirth, String access) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -36,7 +37,7 @@ public class User {
         this.access = access;
     }
 
-    public User(String name, String surname, String telephone, String dateOfBirth, String access) {
+    public UserHotel(String name, String surname, String telephone, String dateOfBirth, String access) {
         this.name = name;
         this.surname = surname;
         this.telephone = telephone;
@@ -84,7 +85,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        UserHotel user = (UserHotel) o;
         return id == user.id && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(telephone, user.telephone) && Objects.equals(dateOfBirth, user.dateOfBirth) && Objects.equals(access, user.access);
     }
 
