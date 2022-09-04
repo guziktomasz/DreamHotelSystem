@@ -41,6 +41,7 @@ public class RoomsController {
 
     @GetMapping(path = "/{roomNumber}")
     public ResponseEntity<Room> getRoom(@PathVariable int roomNumber){
+        System.out.println("getRoomByRoomNumber");
         return roomsService.getRoom(roomNumber).map(room -> new ResponseEntity<>(room, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
