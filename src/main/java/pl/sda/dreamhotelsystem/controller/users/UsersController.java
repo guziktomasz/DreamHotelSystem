@@ -1,4 +1,4 @@
-package pl.sda.dreamhotelsystem.controller.rooms;
+package pl.sda.dreamhotelsystem.controller.users;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
