@@ -11,6 +11,15 @@ import javax.validation.constraints.PositiveOrZero;
 @Validated
 public class AppConfig {
 
+    private String apiKey;
+
+    public String getApiKey() {
+        return apiKey;
+    }
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     @PositiveOrZero
     private int sizeOfInitialDataRooms;
 
