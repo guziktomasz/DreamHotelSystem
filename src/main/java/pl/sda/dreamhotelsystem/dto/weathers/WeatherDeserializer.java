@@ -5,7 +5,9 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class WeatherDeserializer extends StdDeserializer<WeatherDto> {
     public WeatherDto deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         float temperature = (float) node.get("DailyForecasts").get(0).get("Temperature").get("Minimum").get("Value").asDouble();
-
+        System.out.println("Temperatura w WeatherDeserializer: " + temperature);
         /*"DailyForecasts": [
         {
             "Date": "2022-09-06T07:00:00+02:00",

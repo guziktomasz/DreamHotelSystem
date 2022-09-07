@@ -11,10 +11,10 @@ import java.util.Optional;
 @Controller
 @AllArgsConstructor
 public class WeatherController {
-    private WeatherService weatherService;
+   private WeatherService weatherService;
 
     @Bean
-    public Optional<WeatherDto> getTemparature(){
+    public Optional<WeatherDto> getWeatherTemparature(){
         System.out.println("Prosze wystartuj!");
 
         return  weatherService.getTemperature();

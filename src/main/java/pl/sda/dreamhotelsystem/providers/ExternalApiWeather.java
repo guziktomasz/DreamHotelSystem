@@ -33,8 +33,8 @@ public class ExternalApiWeather implements WeatherService {
                     .build();
             System.out.println("Czy to działa?");
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
-            System.out.println(objectMapper.readValue(response.body(), WeatherDto.class));
+            System.out.println("1" + response.body());
+            System.out.println("2" + objectMapper.readValue(response.body(), WeatherDto.class));
             return Optional.ofNullable(objectMapper.readValue(response.body(), WeatherDto.class));
 
 

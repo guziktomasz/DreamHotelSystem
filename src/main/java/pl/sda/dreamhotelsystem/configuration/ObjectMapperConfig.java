@@ -10,18 +10,19 @@ import pl.sda.dreamhotelsystem.dto.weathers.WeatherDto;
 
 @Configuration
 public class ObjectMapperConfig{
-
+    //ObjectMapper mapper = new ObjectMapper();
+    //ObjectMapper objectMapper;
     @Bean
     public ObjectMapper objectMapper() {
         //TODO
-        //ObjectMapper mapper = new ObjectMapper();
 
-        ObjectMapper mapper = new ObjectMapper();
+
+
         SimpleModule module = new SimpleModule();
         module.addDeserializer(WeatherDto.class, new WeatherDeserializer());
-        mapper.registerModule(module);
+        //mapper.registerModule(module);
         return new ObjectMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).registerModule(module);
     }
 
     /*@Bean
