@@ -42,7 +42,7 @@ public class ExternalApiWeather implements WeatherService {
         } catch (Exception e) {
             e.printStackTrace();
             //System.out.println("Czy to działa w catchu?");
-            return Optional.ofNullable(new WeatherDto(30));
+            return Optional.ofNullable(new WeatherDto(30, "C"));
         }
 
     }

@@ -28,6 +28,7 @@ public class WeatherDeserializer extends StdDeserializer<WeatherDto> {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         float temperature = (float) node.get("DailyForecasts").get(0).get("Temperature").get("Minimum").get("Value").asDouble();
         System.out.println("Temperatura w WeatherDeserializer: " + temperature);
-        return new WeatherDto(temperature);
+        String unit = node.get("DailyForecasts").get(0).get("Temperature").get("Minimum").get("Unit").toString();
+        return new WeatherDto(temperature, unit);
     }
 }

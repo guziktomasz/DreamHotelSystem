@@ -9,4 +9,6 @@ import lombok.*;
 @ToString
 public class WeatherDto {
     private float temperatureValue;
+    private String unit;
+
 }
