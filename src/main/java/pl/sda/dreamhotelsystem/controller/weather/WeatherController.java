@@ -15,9 +15,7 @@ public class WeatherController {
 
     @Bean
     public Optional<WeatherDto> getWeatherTemparature(){
-        System.out.println("Prosze wystartuj!");
-
-        return  weatherService.getTemperature();
+         return  weatherService.getTemperature();
 
     }
 }

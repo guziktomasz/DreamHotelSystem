@@ -31,24 +31,18 @@ public class ExternalApiWeather implements WeatherService {
                     .uri(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day/275788?apikey=JJr4X0rdFKtkjNh8vjYQJdDUGIRdfyGJ"))
                     .GET()
                     .build();
-            System.out.println("Czy to działa?");
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("1" + response.body());
-            System.out.println("2" + objectMapper.readValue(response.body(), WeatherDto.class));
+            //System.out.println("1" + response.body());
+            System.out.println(objectMapper.readValue(response.body(), WeatherDto.class));
             return Optional.ofNullable(objectMapper.readValue(response.body(), WeatherDto.class));
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Czy to działa w catchu?");
+            //System.out.println("Czy to działa w catchu?");
             return Optional.ofNullable(new WeatherDto(30));
         }
 
-
-//        ExternalApiWeather temperature = new ExternalApiWeather(objectMapper, httpClient);
-//        System.out.println(temperature.getTemperature());
-//        System.out.println("Czy to działa z temperaturą?");
-        //return null;
     }
 
 

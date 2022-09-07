@@ -28,13 +28,6 @@ public class WeatherDeserializer extends StdDeserializer<WeatherDto> {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         float temperature = (float) node.get("DailyForecasts").get(0).get("Temperature").get("Minimum").get("Value").asDouble();
         System.out.println("Temperatura w WeatherDeserializer: " + temperature);
-        /*"DailyForecasts": [
-        {
-            "Date": "2022-09-06T07:00:00+02:00",
-                "EpochDate": 1662440400,
-                "Temperature": {
-            "Minimum": {
-                "Value": 49.0,*/
         return new WeatherDto(temperature);
     }
 }
