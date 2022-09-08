@@ -34,18 +34,11 @@ public class ExternalApiWeather implements WeatherService {
                     .GET()
                     .build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            //System.out.println("1" + response.body());
-            System.out.println(objectMapper.readValue(response.body(), WeatherDto.class));
             return Optional.ofNullable(objectMapper.readValue(response.body(), WeatherDto.class));
-
 
         } catch (Exception e) {
             e.printStackTrace();
-            //System.out.println("Czy to działa w catchu?");
-            return Optional.ofNullable(new WeatherDto(30, "C"));
+            return Optional.ofNullable(new WeatherDto(50, "F"));
         }
-
     }
-
-
 }
