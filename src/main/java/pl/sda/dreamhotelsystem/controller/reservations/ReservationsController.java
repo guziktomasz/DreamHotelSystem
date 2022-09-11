@@ -8,6 +8,7 @@ import pl.sda.dreamhotelsystem.dto.reservations.ReservationDto;
 import pl.sda.dreamhotelsystem.service.reservations.ReservationsService;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -43,6 +44,13 @@ public class ReservationsController {
                 new ResponseEntity<>(reservation, HttpStatus.OK)).
                 orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+//    @GetMapping(path = "/{today}")
+//    public ResponseEntity<Reservation> getReservationToday(@PathVariable LocalDate today){
+//        return reservationsService.getReservationToday(today).map(reservation ->
+//                        new ResponseEntity<>(reservation, HttpStatus.OK)).
+//                orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    }
 
     // Update
 

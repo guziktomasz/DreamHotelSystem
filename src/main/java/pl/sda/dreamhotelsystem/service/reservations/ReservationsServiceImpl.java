@@ -5,6 +5,7 @@ import pl.sda.dreamhotelsystem.domain.Reservation;
 import pl.sda.dreamhotelsystem.dto.reservations.ReservationDto;
 import pl.sda.dreamhotelsystem.repository.reservations.ReservationsRepository;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -41,6 +42,11 @@ public class ReservationsServiceImpl implements ReservationsService{
     public Optional<Reservation> getReservation(int id) {
         return repository.findById(id);
     }
+
+//    @Override
+//    public Optional<Reservation> getReservationToday(LocalDate today) {
+//        return repository.findByStartVisitBefore(today);
+//    }
 
     @Override
     public Optional<Reservation> updateReservation(ReservationDto updatedReservationDto, int id) {
