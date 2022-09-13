@@ -1,5 +1,7 @@
 package pl.sda.dreamhotelsystem.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ public class UserHotel {
     private String surname;
 
     private String telephone;
-
+  //  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
     private String access;

@@ -43,10 +43,11 @@ public class ReservationsServiceImpl implements ReservationsService{
         return repository.findById(id);
     }
 
-//    @Override
-//    public Optional<Reservation> getReservationToday(LocalDate today) {
-//        return repository.findByStartVisitBefore(today);
-//    }
+    @Override
+    public Collection<Reservation> getReservationToday(LocalDate today) {
+        //today = today.plusDays(1);
+        return repository.findAllReservationToday(today);
+    }
 
     @Override
     public Optional<Reservation> updateReservation(ReservationDto updatedReservationDto, int id) {

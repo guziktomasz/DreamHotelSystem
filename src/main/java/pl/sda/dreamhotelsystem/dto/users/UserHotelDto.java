@@ -1,5 +1,7 @@
 package pl.sda.dreamhotelsystem.dto.users;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -10,7 +12,7 @@ public class UserHotelDto {
     private final String surname;
 
     private final String telephone;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private final LocalDate dateOfBirth;
 
     private final String access;
@@ -35,7 +37,7 @@ public class UserHotelDto {
     public String getTelephone() {
         return telephone;
     }
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }

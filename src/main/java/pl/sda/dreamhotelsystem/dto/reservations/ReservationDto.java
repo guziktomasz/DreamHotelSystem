@@ -1,12 +1,14 @@
 package pl.sda.dreamhotelsystem.dto.reservations;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class ReservationDto {
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate startVisit;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endVisit;
 
     private int numberOfGuests;

@@ -15,9 +15,8 @@ public class WeatherController {
     private WeatherService weatherService;
     @Bean
     public Weather getActuallyWeatherInCelsius(){
-
         float celsiusTemperature = (weatherService.getTemperature().get().getTemperatureValue() - 32) * 5/9;
-
+        celsiusTemperature = Math.round(celsiusTemperature);
         Weather weatherMan = new Weather(celsiusTemperature,"C");
 
         System.out.println(weatherMan);

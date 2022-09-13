@@ -38,7 +38,7 @@ public class ExternalApiWeather implements WeatherService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return Optional.ofNullable(new WeatherDto(50, "F"));
+            return Optional.ofNullable(new WeatherDto(500, "F"));
         }
     }
 }

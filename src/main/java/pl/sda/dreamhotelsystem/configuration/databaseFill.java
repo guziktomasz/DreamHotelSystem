@@ -48,7 +48,7 @@ public class databaseFill implements CommandLineRunner {
                                                                 1,
                                                                 1));
         reservationsRepository.save(new Reservation(LocalDate.of(2022, 9, 11),
-                                                                LocalDate.of(2020, 9, 15),
+                                                                LocalDate.of(2022, 9, 15),
                                                                 2,
                                                                 true,
                                                                 false,
@@ -57,7 +57,7 @@ public class databaseFill implements CommandLineRunner {
                                                                 2,
                                                                 2));
         reservationsRepository.save(new Reservation(LocalDate.of(2022, 9, 9),
-                                                                LocalDate.of(2020, 9, 20),
+                                                                LocalDate.of(2022, 9, 20),
                                                                 6,
                                                                 false,
                                                                 false,
@@ -66,7 +66,7 @@ public class databaseFill implements CommandLineRunner {
                                                                 9,
                                                                 3));
         reservationsRepository.save(new Reservation(LocalDate.of(2022, 9, 9),
-                                                                LocalDate.of(2020, 9, 15),
+                                                                LocalDate.of(2022, 9, 15),
                                                                 2,
                                                                 true,
                                                                 false,

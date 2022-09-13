@@ -1,5 +1,6 @@
 package pl.sda.dreamhotelsystem.controller.reservations;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,12 +46,10 @@ public class ReservationsController {
                 orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-//    @GetMapping(path = "/{today}")
-//    public ResponseEntity<Reservation> getReservationToday(@PathVariable LocalDate today){
-//        return reservationsService.getReservationToday(today).map(reservation ->
-//                        new ResponseEntity<>(reservation, HttpStatus.OK)).
-//                orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-//    }
+    @GetMapping(path = "/today/{today}")
+    public Collection<Reservation> getReservationToday(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate today){
+        return reservationsService.getReservationToday(today);
+    }
 
     // Update
 

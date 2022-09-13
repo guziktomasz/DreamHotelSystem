@@ -15,7 +15,7 @@ public interface ReservationsService {
 
     Optional<Reservation> getReservation(int id);
 
-   // Optional<Reservation> getReservationToday (LocalDate today);
+   Collection<Reservation> getReservationToday (LocalDate today);
 
     Optional<Reservation> updateReservation(ReservationDto reservationDto, int id);
 
