@@ -1,9 +1,6 @@
 package pl.sda.dreamhotelsystem.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -28,17 +25,31 @@ public class Reservation {
 
     private boolean spa;
 
-    private int roomId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "roomId")
+    private Room room;
 
-    private int userId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId")
+    private UserHotel userHotel;
 
     public Reservation(){
 
     }
 
-    public Reservation(int id, LocalDate startVisit, LocalDate endVisit,
-                       int numberOfGuests, boolean breakfast, boolean parking,
-                       boolean animal, boolean spa, int roomId, int userId) {
+    public Reservation(LocalDate startVisit, LocalDate endVisit, int numberOfGuests, boolean breakfast, boolean parking, boolean animal, boolean spa, Room room, UserHotel userHotel) {
+        this.startVisit = startVisit;
+        this.endVisit = endVisit;
+        this.numberOfGuests = numberOfGuests;
+        this.breakfast = breakfast;
+        this.parking = parking;
+        this.animal = animal;
+        this.spa = spa;
+        this.room = room;
+        this.userHotel = userHotel;
+    }
+
+    public Reservation(int id, LocalDate startVisit, LocalDate endVisit, int numberOfGuests, boolean breakfast, boolean parking, boolean animal, boolean spa, Room room, UserHotel userHotel) {
         this.id = id;
         this.startVisit = startVisit;
         this.endVisit = endVisit;
@@ -47,22 +58,8 @@ public class Reservation {
         this.parking = parking;
         this.animal = animal;
         this.spa = spa;
-        this.roomId = roomId;
-        this.userId = userId;
-    }
-
-    public Reservation(LocalDate startVisit, LocalDate endVisit, int numberOfGuests,
-                       boolean breakfast, boolean parking, boolean animal, boolean spa,
-                       int roomId, int userId) {
-        this.startVisit = startVisit;
-        this.endVisit = endVisit;
-        this.numberOfGuests = numberOfGuests;
-        this.breakfast = breakfast;
-        this.parking = parking;
-        this.animal = animal;
-        this.spa = spa;
-        this.roomId = roomId;
-        this.userId = userId;
+        this.room = room;
+        this.userHotel = userHotel;
     }
 
     public int getId() {
@@ -97,12 +94,25 @@ public class Reservation {
         return spa;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public int getUserId() {
-        return userId;
+    public UserHotel getUserHotel() {
+        return userHotel;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return id == that.id && numberOfGuests == that.numberOfGuests && breakfast == that.breakfast && parking == that.parking && animal == that.animal && spa == that.spa && Objects.equals(startVisit, that.startVisit) && Objects.equals(endVisit, that.endVisit) && Objects.equals(room, that.room) && Objects.equals(userHotel, that.userHotel);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, startVisit, endVisit, numberOfGuests, breakfast, parking, animal, spa, room, userHotel);
     }
 
     @Override
@@ -116,26 +126,10 @@ public class Reservation {
                 ", parking=" + parking +
                 ", animal=" + animal +
                 ", spa=" + spa +
-                ", roomId=" + roomId +
-                ", userId=" + userId +
+                ", room=" + room +
+                ", userHotel=" + userHotel +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Reservation that = (Reservation) o;
-        return id == that.id && numberOfGuests == that.numberOfGuests &&
-                breakfast == that.breakfast && parking == that.parking &&
-                animal == that.animal && spa == that.spa && roomId == that.roomId &&
-                userId == that.userId && Objects.equals(startVisit, that.startVisit) &&
-                Objects.equals(endVisit, that.endVisit);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, startVisit, endVisit, numberOfGuests, breakfast, parking,
-                animal, spa, roomId, userId);
-    }
 }
+
+

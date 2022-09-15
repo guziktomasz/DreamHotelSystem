@@ -1,6 +1,9 @@
 package pl.sda.dreamhotelsystem.dto.reservations;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import pl.sda.dreamhotelsystem.domain.Reservation;
+import pl.sda.dreamhotelsystem.domain.Room;
+import pl.sda.dreamhotelsystem.domain.UserHotel;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -25,9 +28,22 @@ public class ReservationDto {
 
     private int userId;
 
-    public ReservationDto(LocalDate startVisit, LocalDate endVisit, int numberOfGuests,
-                          boolean breakfast, boolean parking, boolean animal, boolean spa,
-                          int roomId, int userId) {
+//    public ReservationDto(LocalDate startVisit, LocalDate endVisit, int numberOfGuests,
+//                          boolean breakfast, boolean parking, boolean animal, boolean spa,
+//                          Room room, UserHotel userHotel) {
+//        this.startVisit = startVisit;
+//        this.endVisit = endVisit;
+//        this.numberOfGuests = numberOfGuests;
+//        this.breakfast = breakfast;
+//        this.parking = parking;
+//        this.animal = animal;
+//        this.spa = spa;
+//        this.roomId = room.getId();
+//        this.userId = userHotel.getId();
+//    }
+
+
+    public ReservationDto(LocalDate startVisit, LocalDate endVisit, int numberOfGuests, boolean breakfast, boolean parking, boolean animal, boolean spa, int roomId, int userId) {
         this.startVisit = startVisit;
         this.endVisit = endVisit;
         this.numberOfGuests = numberOfGuests;
@@ -37,6 +53,18 @@ public class ReservationDto {
         this.spa = spa;
         this.roomId = roomId;
         this.userId = userId;
+    }
+
+    public ReservationDto(Reservation reservation){
+        this.startVisit = reservation.getStartVisit();
+        this.endVisit = reservation.getEndVisit();
+        this.numberOfGuests = reservation.getNumberOfGuests();
+        this.breakfast = reservation.isBreakfast();
+        this.parking = reservation.isParking();
+        this.animal = reservation.isAnimal();
+        this.spa = reservation.isSpa();
+        this.roomId = reservation.getRoom().getId();
+        this.userId = reservation.getUserHotel().getId();
     }
 
     public LocalDate getStartVisit() {
