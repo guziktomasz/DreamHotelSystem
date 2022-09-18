@@ -20,7 +20,7 @@ public class RoomsController {
     private final RoomsService roomsService;
 
     public RoomsController(RoomsService roomsService) {
-        System.out.println("RoomController " + roomsService);
+
         this.roomsService = roomsService;
     }
 

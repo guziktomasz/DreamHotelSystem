@@ -12,7 +12,8 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/users")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/usersHotel")
 public class UsersController {
 
    private final UsersService usersService;
